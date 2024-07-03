@@ -23,6 +23,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Build hooks
+        run: npm run build-hooks
+
       - name: Run tests
         run: npm run test
 
@@ -66,5 +69,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: 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
+          github_token: ${{ secrets.GH_TOKEN }}
           publish_dir: .
